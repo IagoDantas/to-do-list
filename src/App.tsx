@@ -1,9 +1,13 @@
 import { Header } from "./components/Header";
+import { TaskForm } from "./components/TaskForm";
 // import styles from './App.module.css'
-export default function App() {
+export function App() {
   return (
     <>
       <Header />
+      <main>
+        <TaskForm />
+      </main>
     </>
   )
 }
