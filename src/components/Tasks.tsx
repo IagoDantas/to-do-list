@@ -1,6 +1,7 @@
+import { Empty } from './Empty';
 import styles from './Tasks.module.css';
+import { ToDo } from './ToDo';
 
-import emptyImage from '../assets/clipboard.svg'
 
 export function Tasks() {
     return (
@@ -18,10 +19,13 @@ export function Tasks() {
                 </div>
             </header>
 
-            <div className={styles.emptyTasks}>
-                <img src={emptyImage} alt="" draggable={false} />
-                <strong>Você ainda não tem tarefas cadastradas</strong>
-                <span>Crie tarefas e organize seus itens a fazer</span>
+
+            {/* <Empty /> */}
+            <div className={styles.taskList}>
+                <ToDo />
+                <ToDo />
+                <ToDo />
+                <ToDo />
             </div>
         </article>
 

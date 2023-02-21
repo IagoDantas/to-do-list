@@ -48,31 +48,15 @@
   font-weight: 700;
 }
 
-.emptyTasks {
+.taskList {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  padding: 0px;
   width: 736px;
-  margin: 24px auto;
-  align-self: stretch;
-  padding: 4rem 1.5rem;
-  gap: 1rem;
-  border-top: 1px solid var(--gray-400);
-  border-radius: 0.5rem;
-}
-
-.emptyTasks > strong {
-  display: block;
-  line-height: 1.4;
-  font-weight: 700;
-  text-align: center;
-  color: var(--gray-300);
-}
-
-.emptyTasks > span {
-  display: block;
-  text-align: center;
-  line-height: 1.4;
-  color: var(--gray-300);
+  height: 400px;
+  order: 1;
 }
