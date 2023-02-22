@@ -14,9 +14,16 @@ export function Tasks({ content, onConcludedTask, onDeleteTasks }: TasksProps) {
         onDeleteTasks(content)
     }
 
+    function handleConcludedTask() {
+        onConcludedTask(content)
+    }
+
     return (
         <div className={styles.todo}>
-            <Checkbox.Root className={styles.checkImg}>
+            <Checkbox.Root
+                onCheckedChange={handleConcludedTask}
+                className={styles.checkImg}
+            >
                 <Checkbox.Indicator className={styles.checkbox}>
                     <Check size={16} weight='bold' />
                 </Checkbox.Indicator>

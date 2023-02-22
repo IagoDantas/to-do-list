@@ -38,7 +38,14 @@ export function TaskForm() {
 
     function concludedTask(task: string) {
 
-        setConcludedTasks([...concludedTasks, task])
+        if (concludedTasks.includes(task)) {
+            setConcludedTasks(concludedTasks.filter(taskItem => {
+                return taskItem !== task
+            }))
+        }
+        else {
+            setConcludedTasks([...concludedTasks, task])
+        }
     }
 
     return (
