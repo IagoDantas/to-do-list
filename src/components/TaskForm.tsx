@@ -9,11 +9,7 @@ export function TaskForm() {
 
     const [concludedTasks, setConcludedTasks] = useState<string[]>([])
 
-    const [newTask, setNewTask] = useState<string[]>([
-        // 'Lavar louça',
-        // 'Estudar',
-        // 'Lavar roupa',
-    ])
+    const [newTask, setNewTask] = useState<string[]>([])
 
     const [newTaskText, setNewTaskText] = useState('')
 
@@ -68,7 +64,7 @@ export function TaskForm() {
                             </div>
                             <div className={styles.concludedTasks}>
                                 <strong>Concluídas</strong>
-                                <span>{`${concludedTasks.length} de ${newTask.length}`}</span>
+                                <span>{newTask.length > 0 ? `${concludedTasks.length} de ${newTask.length}` : newTask.length}</span>
                             </div>
                         </div>
                     </header>
