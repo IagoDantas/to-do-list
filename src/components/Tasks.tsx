@@ -1,33 +1,31 @@
-import { Empty } from './Empty';
 import styles from './Tasks.module.css';
-import { ToDo } from './ToDo';
+import { Check, Trash } from 'phosphor-react'
+import * as Checkbox from '@radix-ui/react-checkbox'
 
+interface TasksProps {
+    content: string;
+    onDeleteTasks: (task: string) => void;
+    onConcludedTask: (task: string) => void;
+}
 
-export function Tasks() {
+export function Tasks({ content, onConcludedTask, onDeleteTasks }: TasksProps) {
+
+    function handleDeleteTask() {
+        onDeleteTasks(content)
+    }
+
     return (
-        <article className={styles.taskWrapper}>
-            <header>
-                <div className={styles.info}>
-                    <div className={styles.createdTasks}>
-                        <strong>Tarefas criadas</strong>
-                        <span>0</span>
-                    </div>
-                    <div className={styles.concludedTasks}>
-                        <strong>Concluídas</strong>
-                        <span>0</span>
-                    </div>
-                </div>
-            </header>
-
-
-            {/* <Empty /> */}
-            <div className={styles.taskList}>
-                <ToDo />
-                <ToDo />
-                <ToDo />
-                <ToDo />
-            </div>
-        </article>
+        <div className={styles.todo}>
+            <Checkbox.Root className={styles.checkImg}>
+                <Checkbox.Indicator className={styles.checkbox}>
+                    <Check size={16} weight='bold' />
+                </Checkbox.Indicator>
+            </Checkbox.Root>
+            <span className={styles.todoText}>{content}</span>
+            <button onClick={handleDeleteTask} className={styles.trashButton}>
+                <Trash size={20} />
+            </button>
+        </div>
 
     )
 }
