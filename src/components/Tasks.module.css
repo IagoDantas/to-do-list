@@ -19,6 +19,16 @@
   flex-grow: 1;
   padding: 0 1rem;
 }
+
+.todoDisabledText {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--gray-300);
+  flex-grow: 1;
+  padding: 0 1rem;
+  text-decoration: line-through;
+}
+
 .checkImg {
   background: transparent;
   border: 1px solid var(--blue);
@@ -55,8 +65,7 @@
   display: flex;
   flex-direction: column;
 }
-.todoText .checkImg[data-state="checked"] {
-}
+
 .checkImg[data-state="checked"] {
   background: var(--purple);
   border: 1px solid var(--purple);

@@ -1,6 +1,7 @@
 import styles from './Tasks.module.css';
 import { Check, Trash } from 'phosphor-react'
 import * as Checkbox from '@radix-ui/react-checkbox'
+import { useState } from 'react';
 
 interface TasksProps {
     content: string;
@@ -10,11 +11,27 @@ interface TasksProps {
 
 export function Tasks({ content, onConcludedTask, onDeleteTasks }: TasksProps) {
 
+
+    const [concludedTasks, setConcludedTasks] = useState<string[]>([])
+
     function handleDeleteTask() {
         onDeleteTasks(content)
     }
 
+    function concludedTask() {
+        if (concludedTasks.includes(content)) {
+            setConcludedTasks(concludedTasks.filter(taskItem => {
+                return taskItem !== content
+            }))
+        }
+        else {
+            return setConcludedTasks([...concludedTasks, content])
+        }
+    }
+
+
     function handleConcludedTask() {
+        concludedTask()
         onConcludedTask(content)
     }
 
@@ -28,7 +45,12 @@ export function Tasks({ content, onConcludedTask, onDeleteTasks }: TasksProps) {
                     <Check size={16} weight='bold' />
                 </Checkbox.Indicator>
             </Checkbox.Root>
-            <span className={styles.todoText}>{content}</span>
+            <span
+                className={
+                    concludedTasks.includes(content) ?
+                        styles.todoDisabledText :
+                        styles.todoText
+                }>{content}</span>
             <button onClick={handleDeleteTask} className={styles.trashButton}>
                 <Trash size={20} />
             </button>

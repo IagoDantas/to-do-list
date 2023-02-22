@@ -4,6 +4,7 @@ import { Empty } from './Empty';
 
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react'
 import { Tasks } from './Tasks';
+
 export function TaskForm() {
 
     const [concludedTasks, setConcludedTasks] = useState<string[]>([])
@@ -43,7 +44,7 @@ export function TaskForm() {
             }))
         }
         else {
-            setConcludedTasks([...concludedTasks, task])
+            return setConcludedTasks([...concludedTasks, task])
         }
     }
 
