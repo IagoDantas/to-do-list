@@ -36,9 +36,15 @@
   border-radius: 8px;
   color: var(--white);
   font-weight: 700;
-  transition: background 0.2s;
+  transition: background 0.2s, opacity 0.2s;
   cursor: pointer;
 }
+
+.formWrapper .taskForm > button[type="submit"]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 .formWrapper .taskForm > button[type="submit"]:hover {
   background: var(--blue);
 }

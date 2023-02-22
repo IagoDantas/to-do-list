@@ -2,8 +2,7 @@ import styles from './TaskForm.module.css'
 import { PlusCircle } from 'phosphor-react'
 import { Empty } from './Empty';
 
-
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react'
 import { Tasks } from './Tasks';
 export function TaskForm() {
 
@@ -48,12 +47,27 @@ export function TaskForm() {
         }
     }
 
+    function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
+        event.target.setCustomValidity('A tarefa não pode ser vazia.')
+    }
+
+    const isNewTaskEmpty = newTaskText.length === 0
+
     return (
         <main>
             <article className={styles.formWrapper}>
                 <form className={styles.taskForm}>
-                    <input type="text" onChange={handleNewTaskTextChange} placeholder="Adicione uma nova tarefa" />
-                    <button onClick={handleCreateNewTask} type="submit">
+                    <input
+                        type="text"
+                        value={newTaskText}
+                        onInvalid={handleNewTaskInvalid}
+                        onChange={handleNewTaskTextChange} placeholder="Adicione uma nova tarefa"
+                        required
+                    />
+                    <button
+                        onClick={handleCreateNewTask}
+                        disabled={isNewTaskEmpty}
+                        type="submit">
                         Criar
                         <PlusCircle size={18} weight='bold' />
                     </button>
