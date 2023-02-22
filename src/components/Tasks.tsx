@@ -16,6 +16,9 @@ export function Tasks({ content, onConcludedTask, onDeleteTasks }: TasksProps) {
 
     function handleDeleteTask() {
         onDeleteTasks(content)
+        setConcludedTasks(concludedTasks.filter(taskItem => {
+            return taskItem !== content
+        }))
     }
 
     function concludedTask() {
@@ -29,19 +32,21 @@ export function Tasks({ content, onConcludedTask, onDeleteTasks }: TasksProps) {
         }
     }
 
-
     function handleConcludedTask() {
         concludedTask()
         onConcludedTask(content)
     }
 
+    console.log(concludedTasks)
+
+
     return (
         <div className={styles.todo}>
             <Checkbox.Root
                 onCheckedChange={handleConcludedTask}
-                className={styles.checkImg}
+                className={concludedTasks.includes(content) ? styles.checkedImg : styles.checkImg}
             >
-                <Checkbox.Indicator className={styles.checkbox}>
+                <Checkbox.Indicator className={concludedTasks.includes(content) ? styles.checkbox : styles.checked}>
                     <Check size={16} weight='bold' />
                 </Checkbox.Indicator>
             </Checkbox.Root>

@@ -33,7 +33,12 @@ export function TaskForm() {
         const tasksWithoutDeletedOne = newTask.filter(taskItem => {
             return taskItem !== task
         })
+        setConcludedTasks(concludedTasks.filter(taskItem => {
+            return taskItem !== task
+        }))
+
         setNewTask(tasksWithoutDeletedOne)
+
     }
 
     function concludedTask(task: string) {
@@ -53,6 +58,8 @@ export function TaskForm() {
     }
 
     const isNewTaskEmpty = newTaskText.length === 0
+
+    console.log(concludedTasks)
 
     return (
         <main>
