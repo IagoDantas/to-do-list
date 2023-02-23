@@ -3,8 +3,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 736px;
-  margin: 24px auto;
+  max-width: 46rem;
+  width: 100%;
+  height: 100%;
+  margin: 1.5rem auto;
   align-self: stretch;
   padding: 4rem 1.5rem;
   gap: 1rem;

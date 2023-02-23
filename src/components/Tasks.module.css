@@ -1,11 +1,13 @@
 .todo {
   display: flex;
-  width: 46rem;
+  max-width: 46rem;
+  width: 100%;
   height: 4.5rem;
   flex-direction: row;
   align-self: strech;
   align-items: center;
   padding: 1rem;
+  flex-wrap: wrap;
   gap: 0.75rem;
   background: var(--gray-500);
   border: 1px solid var(--gray-400);
@@ -15,6 +17,7 @@
 .todoText {
   font-size: 0.9rem;
   line-height: 1.4;
+  word-wrap: break-word;
   color: var(--gray-100);
   flex-grow: 1;
   padding: 0 1rem;
