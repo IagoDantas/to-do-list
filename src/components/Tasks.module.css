@@ -36,6 +36,7 @@
 .checkImg {
   background: transparent;
   border: 1px solid var(--blue);
+  color: transparent;
   line-height: 0;
   width: 1.51rem;
   height: 1.36rem;
